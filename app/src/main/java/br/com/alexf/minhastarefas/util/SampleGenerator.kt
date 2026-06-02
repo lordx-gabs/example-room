@@ -1,7 +1,7 @@
-package br.com.alexf.minhastarefas.samples.generators
+package br.com.alexf.minhastarefas.util
 
 import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
-import br.com.alexf.minhastarefas.models.Task
+import br.com.alexf.minhastarefas.domain.models.Task
 import kotlin.random.Random
 
 fun generateRandomTasks(
@@ -18,5 +18,5 @@ fun generateRandomTasks(
 fun generateLoremIpsum(
     amountWords: Int = 1
 ) = LoremIpsum(
-    Random.nextInt(1, if (amountWords > 1) amountWords else 2)
+    Random.Default.nextInt(1, if (amountWords > 1) amountWords else 2)
 ).values.first()

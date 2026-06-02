@@ -1,13 +1,12 @@
-package br.com.alexf.minhastarefas.repositories
+package br.com.alexf.minhastarefas.data.repository
 
-import br.com.alexf.minhastarefas.models.Task
+import br.com.alexf.minhastarefas.domain.models.Task
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 
 class TasksRepository {
-
     val tasks: Flow<List<Task>> get() = _tasks.asStateFlow()
 
     fun save(task: Task) {

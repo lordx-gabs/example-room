@@ -1,6 +1,6 @@
-package br.com.alexf.minhastarefas.ui.states
+package br.com.alexf.minhastarefas.ui.feature.taskslist
 
-import br.com.alexf.minhastarefas.models.Task
+import br.com.alexf.minhastarefas.domain.models.Task
 
 data class TasksListUiState(
     val tasks: List<Task> = emptyList(),

@@ -1,4 +1,4 @@
-package br.com.alexf.minhastarefas.models
+package br.com.alexf.minhastarefas.domain.models
 
 import java.util.UUID
 

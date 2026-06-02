@@ -1,4 +1,4 @@
-package br.com.alexf.minhastarefas.ui.states
+package br.com.alexf.minhastarefas.ui.feature.taskform
 
 data class TaskFormUiState(
     val title: String = "",

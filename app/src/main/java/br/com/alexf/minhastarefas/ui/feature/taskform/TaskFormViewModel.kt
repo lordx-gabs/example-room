@@ -1,9 +1,8 @@
-package br.com.alexf.minhastarefas.ui.viewmodels
+package br.com.alexf.minhastarefas.ui.feature.taskform
 
 import androidx.lifecycle.ViewModel
-import br.com.alexf.minhastarefas.models.Task
-import br.com.alexf.minhastarefas.repositories.TasksRepository
-import br.com.alexf.minhastarefas.ui.states.TaskFormUiState
+import br.com.alexf.minhastarefas.data.repository.TasksRepository
+import br.com.alexf.minhastarefas.domain.models.Task
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update

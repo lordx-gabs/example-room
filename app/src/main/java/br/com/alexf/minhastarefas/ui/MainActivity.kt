@@ -1,27 +1,28 @@
-package br.com.alexf.minhastarefas
+package br.com.alexf.minhastarefas.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import br.com.alexf.minhastarefas.ui.screens.TaskFormScreen
-import br.com.alexf.minhastarefas.ui.screens.TasksListScreen
-import br.com.alexf.minhastarefas.ui.states.TasksListUiState
-import br.com.alexf.minhastarefas.ui.theme.MinhasTarefasTheme
-import br.com.alexf.minhastarefas.ui.viewmodels.TaskFormViewModel
-import br.com.alexf.minhastarefas.ui.viewmodels.TasksListViewModel
+import br.com.alexf.minhastarefas.ui.feature.taskform.TaskFormScreen
+import br.com.alexf.minhastarefas.ui.feature.taskslist.TasksListScreen
+import br.com.alexf.minhastarefas.ui.feature.taskslist.TasksListUiState
+import br.com.alexf.minhastarefas.ui.feature.taskform.TaskFormViewModel
+import br.com.alexf.minhastarefas.ui.feature.taskslist.TasksListViewModel
+import br.com.alexf.minhastarefas.ui.theme.ExampleRoomTheme
 import org.koin.androidx.compose.koinViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         setContent {
-            MinhasTarefasTheme {
+            ExampleRoomTheme {
                 val navController = rememberNavController()
                 NavHost(
                     navController = navController,
@@ -53,5 +54,3 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-
-
