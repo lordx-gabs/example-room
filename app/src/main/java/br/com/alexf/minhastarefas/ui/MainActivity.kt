@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -15,6 +16,7 @@ import br.com.alexf.minhastarefas.ui.feature.taskslist.TasksListUiState
 import br.com.alexf.minhastarefas.ui.feature.taskform.TaskFormViewModel
 import br.com.alexf.minhastarefas.ui.feature.taskslist.TasksListViewModel
 import br.com.alexf.minhastarefas.ui.theme.ExampleRoomTheme
+import kotlinx.coroutines.launch
 import org.koin.androidx.compose.koinViewModel
 
 class MainActivity : ComponentActivity() {
@@ -40,13 +42,16 @@ class MainActivity : ComponentActivity() {
                         )
                     }
                     composable("taskForm") {
+                        val scope = rememberCoroutineScope()
                         val viewModel = koinViewModel<TaskFormViewModel>()
                         val uiState by viewModel.uiState.collectAsState()
                         TaskFormScreen(
                             uiState = uiState,
                             onSaveClick = {
-                                viewModel.save()
-                                navController.popBackStack()
+                                scope.launch {
+                                    viewModel.save()
+                                    navController.popBackStack()
+                                }
                             })
                     }
                 }

@@ -1,16 +1,15 @@
 package br.com.alexf.minhastarefas.ui.feature.taskform
 
 import androidx.lifecycle.ViewModel
-import br.com.alexf.minhastarefas.data.repository.TasksRepository
 import br.com.alexf.minhastarefas.domain.models.Task
+import br.com.alexf.minhastarefas.domain.repository.TaskRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 
 class TaskFormViewModel(
-    private val repository: TasksRepository
+    private val repository: TaskRepository
 ) : ViewModel() {
-
     private val _uiState: MutableStateFlow<TaskFormUiState> =
         MutableStateFlow(TaskFormUiState())
     val uiState = _uiState.asStateFlow()
@@ -32,7 +31,7 @@ class TaskFormViewModel(
         }
     }
 
-    fun save() {
+    suspend fun save() {
         with(_uiState.value) {
             repository.save(
                 Task(
